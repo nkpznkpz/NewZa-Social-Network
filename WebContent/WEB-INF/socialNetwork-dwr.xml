@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dwr PUBLIC "-//GetAhead Limited//DTD Direct Web Remoting 2.0//EN" "http://getahead.org/dwr/dwr20.dtd">
+<dwr>
+	<allow>
+		<create creator="spring" javascript="memberAjax"> 
+			<param name="beanName" value="memberController"/>
+		</create>
+		<create creator="spring" javascript="mainAjax"> 
+			<param name="beanName" value="mainPageController"/>
+		</create>
+		<create creator="spring" javascript="profileAjax"> 
+			<param name="beanName" value="profileController"/>
+		</create>
+		<create creator="spring" javascript="profileCommentAjax"> 
+			<param name="beanName" value="profileCommentController"/>
+		</create>
+		<create creator="spring" javascript="friendAjax"> 
+			<param name="beanName" value="friendController"/>
+		</create>
+		<create creator="spring" javascript="blogAjax"> 
+			<param name="beanName" value="blogController"/>
+		</create>
+		<create creator="spring" javascript="messageAjax"> 
+			<param name="beanName" value="messageController"/>
+		</create>
+		<create creator="spring" javascript="photoAjax"> 
+			<param name="beanName" value="photoController"/>
+		</create>
+		<create creator="spring" javascript="adminAjax"> 
+			<param name="beanName" value="adminController"/>
+		</create>
+		<convert converter="bean" match="java.util.*"/>
+    	<convert converter="bean" match="java.lang.*"/>
+		<convert converter="collection" match="java.util.Collection"/>
+    	<convert converter="collection" match="java.util.List"/>
+    	
+    	<convert match="java.lang.Exception" converter="exception">
+  			<param name='include' value='message,lineNumber'/>
+		</convert>
+		<!-- <convert converter="bean" match="com.ss.ext.dwrcontroller.*" /> -->
+		<!-- Map Model  -->
+		<convert converter="bean" match="com.csmju.social.model.*" />
+	</allow>
+</dwr>

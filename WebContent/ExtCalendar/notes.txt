@@ -1,0 +1,75 @@
+E2CS : Extjs Event Calendar Solution
+alpha  0.0.15 - Beta 0.1.7 
+Extjs-Event-Calendar Solution  
+Author: Carlos Mendez
+
+Official Home page : http://e2cs.mm-mendez.com/
+contact   : 
+	GMAIL - GTALK - cmendez21@gmail.com 
+	SKYPE - carlos.mendez.21
+
+------------------------------------------------------------------
+Donations are to support the E2CS calendar development and for more free Extjs stuff that is planned already
+------------------------------------------------------------------
+E2CS - is licensed under the terms of  the Open Source LGPL 3.0 license.
+License details: http://www.gnu.org/licenses/lgpl.html
+  
+Commercial use is permitted only if its not for: 
+- Distribute over the internet the same application on more than 2 customer or public applications to sell to many users
+
+For a Commercial licence please check the section support and donate inside the website 
+------------------------------------------------------------------
+You want more code, custom code, consultancy, all about e2cs calendar etc.  here are the options
+
+- Donate (for quick and urgent support responses according donation - from less than 3 hours to less than 12 hours)
+
+- Advertising in our site.- we put a banner of your company (gif, flash, jpf, etc) for a period of time, please inquire
+
+- $100 Us. dollars (negotiable per number of hours) per Hour for consulting, coding modules or custom code (javascript, php, mysql, Extjs) 
+	
+	- Payment in advance for Foreign Clients (outside México), not negotiable, so please don't insist 
+	  i have had many awful experiences on foreign customers on the past
+
+	- For Mexican Clients 50% in Advance and 50% on Release on my Test site and then I deliver the code 
+	  (also I give invoices tax deductible, also tax it’s not included on the price).
+
+- Per project .- Depending on the project to make and the time that will take to do it (please request for pricing and time availability for development)
+------------------------------------------------------------------
+NOTE: this widget its now stable for a production application
+------------------------------------------------------------------
+Credits 
+
+e2cs.dateParts and dateDiff taken from DOJO toolkit  (im not stealing code so i give the proper credits)
+
+For Translation Credits AND HELP on the project please check the Credit Topic on 
+the online HElp por ADOBE AIR version
+------------------------------------------------------------------
+INSTALL:
+For sample files to work fine  adjust the EXTJS files and CSS files locations
+
+NOTES:
+1.- For debugging check the files on Source folder
+the order would be: 
+
+<link rel="stylesheet" type="text/css" href="calendar.css">
+<script type="text/javascript" src="locale/e2cs_en.js"> //choose your lang file on locale folder </script>  
+<script type="text/javascript" src="calendar.js"></script>
+<script type="text/javascript" src="monthview.js"></script>
+<script type="text/javascript" src="weekview.js"></script>
+<script type="text/javascript" src="dayview.js"></script>
+<script type="text/javascript" src="task.js"></script>
+<script type="text/javascript" src="scheduler.js"></script>
+
+2.- dbcal.php and dbcal_xml.php file contains php sample code to work for e2cs_test.sql table sample just install the .sql file on a clean database or 
+testing database and adjust the code to access you database file 
+
+3.- On AIR, ASP or Coldfusion adapt your code to return a valid JSON response acording to the sample and the 
+database wich you're gonna use
+
+4.- For use with jquery or prototype please check EXTJS documentation on EXTJS ADAPTERS 
+for use with jquery or prototype on the forums
+
+5.- For Adobe Air development please check all the Xtemplate objects in the source and 
+adjust them to the initial loading of AIR because this will not work  
+(check EXT samples about template objects)
+

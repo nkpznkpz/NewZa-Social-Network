@@ -1,0 +1,32 @@
+.ui-pager { padding:.1em 0; position: relative; width: 150px; height: 1.7em; text-align: center; }
+.ui-pager .ui-pager-first {
+    cursor: pointer; position:absolute; top: 0px; width: 1.8em; height: 1.5em; left: 2px;
+}
+.ui-pager .ui-pager-content {
+    margin: 1px 30px 0px 30px;
+}
+.ui-pager .ui-pager-last {
+    cursor: pointer; position:absolute; top: 0px; width: 1.8em; height: 1.5em; right: 2px;
+}
+.ui-pager .ui-pager-before {
+    padding-left: 25px;
+    cursor: pointer;
+}
+.ui-pager .ui-pager-after {
+    padding-right: 25px;
+    cursor: pointer;
+}
+.ui-pager .ui-pager-first span, .ui-pager .ui-pager-last span { display: block; position: absolute; left: 50%; margin-left: -8px; top: 25%;   }
+.ui-pager .ui-pager-before span, .ui-pager .ui-pager-after span { display: block; position: absolute; left: 50%; margin-left: -8px; top: 18%;  }
+.ui-pager .ui-pager-after {
+    position:absolute; top: 3px; height: 1.5em; right: 30px;
+}
+.ui-pager .ui-pager-before {
+    position:absolute; top: 3px; height: 1.5em; left: 30px;
+}
+.ui-pager .ui-pager-current {
+    text-align: center;
+    margin: 0px;
+    padding: 0px;
+    font-size:0.8em;
+}

@@ -1,0 +1,166 @@
+a:active{color: #000000;text-decoration: none;}
+a:link{color: #000000;text-decoration: none;}
+a:visited{color: #000000;text-decoration: none;}
+a:hover{color: #000000;text-decoration: underline;}
+body{
+	background-image: url(../img/bg.png);
+	}
+.loading-indicator {
+	font-size:8pt;
+	background-repeat: no-repeat;
+	background-position:top left;
+	padding-left:20px;
+	height:18px;
+	text-align:left;
+}
+#header_logo {
+	background-image:url(../img/logo.png);
+	float:left;
+	height:62px;
+	width:406px;
+}
+#loading{
+	position:absolute;
+	left:45%;
+	top:40%;
+	border:1px solid #6593cf;
+	padding:2px;
+	background:#c3daf9;
+	width:150px;
+	text-align:center;
+	z-index:20001;
+}
+#loading .loading-indicator{
+	border:1px solid #a3bad9;
+	background:white;
+	color:#003366;
+	font:bold 13px tahoma,arial,helvetica;
+	padding:10px;
+	margin:0;
+}
+#loading-mask{
+	width:100%;
+	height:100%;
+	background:#c3daf9;
+	position:absolute;
+	z-index:20000;
+	left:0;
+	top:0;
+ }
+ #header_top {
+	background-image:url(../img/top_bg_65.png);
+	height:65px;
+	text-align:center;
+	width:100%;
+	height:65px;
+	margin-bottom: 10px;
+}
+*html #header_top{
+
+	background-image:none;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../img/top_bg_65.png',sizingMethod='scale');
+
+}
+.newza {
+	font-family: "Microsoft Sans Serif", Tahoma;
+	font-size: 12px;
+	width:99%;
+}
+#header {
+	padding: 1px 1px 1px 1px;
+	
+	 	
+}
+#sidebar {
+	border: 1px solid #CED9DF; 	
+	float: left;
+	width:21%; 
+	margin: 0;	padding: 0; 
+	display: inline;
+}
+#content{
+	width:800px; 
+	margin:auto;
+	text-align:center;
+	min-width: 800px;
+}
+
+#footer{
+	text-align:center;
+	width:100%;
+	float:left;
+	height:20px;
+	background-color: #CAECFB;
+	border-top: solid 1px #5EC7F2;
+	border-bottom: solid 1px #5EC7F2;
+	margin-top: 10px;
+}
+#header{
+	text-align:center;
+	background-color:#ffcccc;
+	width:100%;
+	height:65px;
+}
+.boxlink{
+	text-align:center;
+	margin: 1px 1px 1px 1px;
+	cursor:pointer;
+}
+.boxlink:hover{
+	background-color:#77CDF1;
+	border-bottom:1px solid  #000000;
+	border-top:1px solid  #000000;
+	border-left:1px solid  #000000;
+	border-right:1px solid  #000000;
+}
+.UIPhotoGrid_Image {
+	background:white none repeat scroll 0 0;
+	border:1px solid #CCCCCC;
+	padding:4px;
+	vertical-align:middle;
+}
+.dock {
+	position: relative; 
+	height: 80px; 
+	width:100%;
+	text-align: center;
+	background-image: url(../menuicon/bar_menu_02.png);
+}
+.dock-container {
+	position: absolute;
+	height: 50px;
+	padding-left: 20px;
+}
+a.dock-item {
+	display: block;
+	width: 70px;
+	color: #000;
+	position: absolute;
+	top: 0px;
+	text-align: center;
+	text-decoration: none;
+	font: 12px "Microsoft Sans Serif", Tahoma;
+	z-index: 100;
+}
+.dock-item img {
+	border: none; 
+	margin: 5px 10px 0px; 
+	width: 100%; 
+}
+.dock-item span {
+	display: none;
+	padding-left: 20px;
+}
+#profileBar{
+	border-top: solid 1px #5EC7F2;
+	border-bottom: solid 1px #5EC7F2;
+	background-color: #CAECFB;
+	width:800px;
+	color: #000000;
+	text-align: left;
+	margin-bottom: 10px;
+}
+.btn-text{
+	background-color: #CAECFB;
+	border: solid 1px #5EC7F2;
+}

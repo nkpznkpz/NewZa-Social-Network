@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:lang="http://www.springframework.org/schema/lang"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang-2.0.xsd">
+	<bean id="urlMapping"
+		class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="mappings">
+			<props>
+				<prop key="main.html">mainPageController</prop>
+				<prop key="member.html">memberController</prop>
+				<prop key="photo.html">photoController</prop>
+				<prop key="profile.html">profileController</prop>
+				<prop key="content.html">blogController</prop>
+				<prop key="profileComment.html">profileCommentController</prop>
+				<prop key="friend.html">friendController</prop>
+				<prop key="message.html">messageController</prop>
+				<prop key="admin.html">adminController</prop>
+				<prop key="test.html">testController</prop>
+			</props>
+		</property>
+	</bean>
+	<bean id="testController" class="com.csmju.social.controller.TestController">		
+		<property name="methodNameResolver">
+			<ref bean="paramResolver" />
+		</property>
+	</bean>
+	<bean id="adminController" class="com.csmju.social.controller.AdminController">
+		<property name="profileService">
+			<ref bean="profileService" />
+		</property>
+		<property name="wantService">
+			<ref bean="wantService" />
+		</property>
+		<property name="personStatusService">
+			<ref bean="personStatusService" />
+		</property>
+		<property name="memberService">
+			<ref bean="memberService" />
+		</property>
+		<property name="logService">
+			<ref bean="logService" />
+		</property>
+		<property name="templateService">
+			<ref bean="templateService" />
+		</property>
+		<property name="mainPageService">
+			<ref bean="mainPageService" />
+		</property>
+		<property name="methodNameResolver">
+			<ref bean="paramResolver" />
+		</property>
+	</bean>
+	<bean id="mainPageController" class="com.csmju.social.controller.MainPageController">
+		<property name="mainPageService">
+			<ref bean="mainPageService" />
+		</property>
+		<property name="memberService">
+			<ref bean="memberService" />
+		</property>
+		<property name="profileService">
+			<ref bean="profileService" />
+		</property>	
+		<property name="blogService">
+			<ref bean="blogService" />
+		</property>		
+		<property name="chatService">
+			<ref bean="chatService" />
+		</property>
+		<property name="methodNameResolver">
+			<ref bean="paramResolver" />
+		</property>
+	</bean>
+	<bean id="memberController" class="com.csmju.social.controller.MemberController">
+		<property name="memberService">
+			<ref bean="memberService" />
+		</property>
+		<property name="profileService">
+			<ref bean="profileService" />
+		</property>
+		<property name="methodNameResolver">
+			<ref bean="paramResolver" />
+		</property>
+	</bean>
+	<bean id="photoController" class="com.csmju.social.controller.PhotoController">
+		<property name="photoService">
+			<ref bean="photoService" />
+		</property>
+		<property name="profileService">
+			<ref bean="profileService" />
+		</property>
+		<property name="friendService">
+			<ref bean="friendService" />
+		</property>
+		<property name="templateService">
+			<ref bean="templateService" />
+		</property>
+		<property name="methodNameResolver">
+			<ref bean="paramResolver" />
+		</property>
+	</bean>
+	<bean id="profileController" class="com.csmju.social.controller.ProfileController">
+		<property name="profileService">
+			<ref bean="profileService" />
+		</property>
+		<property name="memberService">
+			<ref bean="memberService" />
+		</property>
+		<property name="friendService">
+			<ref bean="friendService" />
+		</property>
+		<property name="blogService">
+			<ref bean="blogService" />
+		</property>
+		<property name="profileCommentService">
+			<ref bean="profileCommentService" />
+		</property>
+		<property name="photoService">
+			<ref bean="photoService" />
+		</property>
+		<property name="wantService">
+			<ref bean="wantService" />
+		</property>
+		<property name="personStatusService">
+			<ref bean="personStatusService" />
+		</property>
+		<property name="templateService">
+			<ref bean="templateService" />
+		</property>
+		<property name="methodNameResolver">
+			<ref bean="paramResolver" />
+		</property>
+	</bean>
+	<bean id="blogController" class="com.csmju.social.controller.BlogController">
+		<property name="blogService">
+			<ref bean="blogService" />
+		</property>
+		<property name="friendService">
+			<ref bean="friendService" />
+		</property>
+		<property name="profileService">
+			<ref bean="profileService" />
+		</property>	
+		<property name="memberService">
+			<ref bean="memberService" />
+		</property>
+		<property name="blogCommentService">
+			<ref bean="blogCommentService" />
+		</property>
+		<property name="templateService">
+			<ref bean="templateService" />
+		</property>
+		<property name="methodNameResolver">
+			<ref bean="paramResolver" />
+		</property>
+	</bean>
+	<bean id="profileCommentController" class="com.csmju.social.controller.ProfileCommentController">
+		<property name="profileCommentService">
+			<ref bean="profileCommentService" />
+		</property>
+		<property name="profileService">
+			<ref bean="profileService" />
+		</property>
+		<property name="friendService">
+			<ref bean="friendService" />
+		</property>
+		<property name="methodNameResolver">
+			<ref bean="paramResolver" />
+		</property>
+	</bean>
+	<bean id="friendController" class="com.csmju.social.controller.FriendController">
+		<property name="friendService">
+			<ref bean="friendService" />
+		</property>
+		<property name="profileService">
+			<ref bean="profileService" />
+		</property>
+		<property name="memberService">
+			<ref bean="memberService" />
+		</property>
+		<property name="templateService">
+			<ref bean="templateService" />
+		</property>
+		<property name="methodNameResolver">
+			<ref bean="paramResolver" />
+		</property>
+	</bean>
+	<bean id="messageController" class="com.csmju.social.controller.MessageController">
+		<property name="messageService">
+			<ref bean="messageService" />
+		</property>
+		<property name="profileService">
+			<ref bean="profileService" />
+		</property>
+		<property name="memberService">
+			<ref bean="memberService" />
+		</property>
+		<property name="templateService">
+			<ref bean="templateService" />
+		</property>
+		<property name="methodNameResolver">
+			<ref bean="paramResolver" />
+		</property>
+	</bean>
+	
+	<bean id="multipartResolver"
+class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
+
+	<bean id="paramResolver"
+		class="org.springframework.web.servlet.mvc.multiaction.ParameterMethodNameResolver">
+		<property name="paramName">
+			<value>do</value>
+		</property>
+		<property name="defaultMethodName">
+			<value>view</value>
+		</property>
+	</bean>
+</beans>
+
+	
+

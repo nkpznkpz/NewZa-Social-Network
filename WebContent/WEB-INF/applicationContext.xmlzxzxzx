@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       					   http://www.springframework.org/schema/beans/spring-beans-2.0.xsd	
+       					   http://www.springframework.org/schema/util 
+       					   http://www.springframework.org/schema/util/spring-util-2.0.xsd
+       					   http://www.springframework.org/schema/tx
+       					   http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
+   	
+	<bean id="jdbcdataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://localhost:3306/nkpznkpz?characterEncoding=utf-8" />
+		<property name="username" value="nkpznkpz" />
+		<property name="password" value="nkpz111nkpz" />
+	</bean>
+	
+	<bean id="sessionFactory"  
+		  class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		<property name="dataSource" ref="jdbcdataSource"/>
+		<property name="annotatedClasses">
+			<list>
+				<!-- model -->
+				<value>com.csmju.social.model.AlbumModel</value>
+				<value>com.csmju.social.model.BlogCommentModel</value>
+				<value>com.csmju.social.model.BlogModel</value>
+				<value>com.csmju.social.model.FriendModel</value>
+				<value>com.csmju.social.model.GenderModel</value>
+				<value>com.csmju.social.model.IpBanModel</value>
+				<value>com.csmju.social.model.MainPageModel</value>
+				<value>com.csmju.social.model.MemberModel</value>
+				<value>com.csmju.social.model.MessageModel</value>
+				<value>com.csmju.social.model.PersonStatusModel</value>
+				<value>com.csmju.social.model.PhotoCommentModel</value>
+				<value>com.csmju.social.model.PhotoModel</value>
+				<value>com.csmju.social.model.ProfileCommentModel</value>
+				<value>com.csmju.social.model.ProfileModel</value>
+				<value>com.csmju.social.model.TemplateModel</value>
+			</list>
+		</property>
+		
+		<property name="schemaUpdate" value="true"/>
+
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<prop key="hibernate.connection.pool_size">5</prop>
+				<prop key="hibernate.show_sql">false</prop>
+				<prop key="hibernate.cglib.use_reflection_optimizer">true</prop>
+            	<prop key="hibernate.hibernate.cache.use_query_cache">true</prop>
+            	<prop key="hibernate.hbm2ddl.auto">none</prop>
+<!--            	<prop key="hibernate.hbm2ddl.auto">create</prop>-->
+			</props>
+		</property>
+		
+	</bean>
+	
+	<bean id="baseTransactionProxy"
+		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean"
+		lazy-init="true" abstract="true">
+		<property name="transactionManager">
+			<ref bean="transactionManager" />
+		</property>
+		<property name="transactionAttributes">
+			<props>
+				<prop key="check*">PROPAGATION_REQUIRED</prop>
+				<prop key="edit*">PROPAGATION_REQUIRED</prop>
+				<prop key="remove*">PROPAGATION_REQUIRED</prop>
+				<prop key="insert*">PROPAGATION_REQUIRED</prop>
+				<prop key="save*">PROPAGATION_REQUIRED</prop>
+				<prop key="add*">PROPAGATION_REQUIRED</prop>
+				<prop key="update*">PROPAGATION_REQUIRED</prop>
+				<prop key="create*">PROPAGATION_REQUIRED</prop>
+				<prop key="delete*">PROPAGATION_REQUIRED</prop>
+				<prop key="load*">PROPAGATION_REQUIRED</prop>
+				<prop key="gen*">PROPAGATION_REQUIRED</prop>
+				<prop key="find*">PROPAGATION_SUPPORTS</prop>
+				<prop key="get*">PROPAGATION_SUPPORTS</prop>
+				<prop key="*">PROPAGATION_SUPPORTS</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<bean id="testService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.csmju.social.service.impl.TestServiceImpl">
+				<property name="testDao">
+					<ref bean="testDao" />
+				</property>
+			</bean>
+		</property>
+	</bean>	
+	<bean id="testDao" class="com.csmju.social.dao.impl.TestDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean id="mainPageService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.csmju.social.service.impl.MainPageServiceImpl">
+				<property name="mainPageDao">
+					<ref bean="mainPageDao" />
+				</property>
+				<property name="profileDao">
+					<ref bean="profileDao" />
+				</property>
+			</bean>
+		</property>
+	</bean>	
+	<bean id="mainPageDao" class="com.csmju.social.dao.impl.MainPageDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean id="memberService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.csmju.social.service.impl.MemberServiceImpl">
+				<property name="memberDao">
+					<ref bean="memberDao" />
+				</property>
+			</bean>
+		</property>
+	</bean>	
+	<bean id="memberDao" class="com.csmju.social.dao.impl.MemberDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<bean id="photoService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.csmju.social.service.impl.PhotoServiceImpl">
+				<property name="photoDao">
+					<ref bean="photoDao" />
+				</property>				
+			</bean>
+		</property>
+	</bean>	
+	<bean id="photoDao" class="com.csmju.social.dao.impl.PhotoDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="profileService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.csmju.social.service.impl.ProfileServiceImpl">
+				<property name="profileDao">
+					<ref bean="profileDao" />
+				</property>
+				
+			</bean>
+		</property>
+	</bean>	
+	<bean id="profileDao" class="com.csmju.social.dao.impl.ProfileDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="friendService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.csmju.social.service.impl.FriendServiceImpl">
+				<property name="friendDao">
+					<ref bean="friendDao" />
+				</property>				
+			</bean>
+		</property>
+	</bean>	
+	<bean id="friendDao" class="com.csmju.social.dao.impl.FriendDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="profileCommentService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.csmju.social.service.impl.ProfileCommentServiceImpl">
+				<property name="profileCommentDao">
+					<ref bean="profileCommentDao" />
+				</property>				
+			</bean>
+		</property>
+	</bean>	
+	<bean id="profileCommentDao" class="com.csmju.social.dao.impl.ProfileCommentDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="blogService" parent="baseTransactionProxy">
+		<property name="target">
+			<bean class="com.csmju.social.service.impl.BlogServiceImpl">
+				<property name="blogDao">
+					<ref bean="blogDao" />
+				</property>				
+			</bean>
+		</property>
+	</bean>	
+	<bean id="blogDao" class="com.csmju.social.dao.impl.BlogDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	
+	<tx:annotation-driven/>
+				
+   	
+</beans>

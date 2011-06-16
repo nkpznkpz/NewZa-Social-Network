@@ -1,0 +1,51 @@
+.blockFriend{
+	overflow:hidden;
+	padding:3px 7px 3px 7px;
+	width: 100px;
+	height: 140px;
+	float: left;
+}
+.blockTopFriend{
+	overflow:hidden;
+	background-color:#C4FFFF;
+	padding:3px 7px 3px 7px;
+	width: 100px;
+	height: 140px;
+	float: left;
+}
+.photoFriend{
+	width: 100px;
+	height: 100px;
+	border: solid 1px #000000;	
+	float: left;
+}
+.friendName{
+	overflow:hidden;
+	width: 100px;
+	display: block;	
+	float: left;
+	text-align: center;
+}
+
+.blockFriendReq{
+	overflow:hidden;
+	padding:3px 3px 3px 3px;
+	width: 390px;
+	height: 120px;
+	float: left;
+}
+.photoFriendReq{
+	width: 100px;
+	height: 100px;
+	border: solid 1px #000000;	
+	float: left;
+	cursor: pointer;
+}
+.boxReq{
+	margin-left:10px;
+	width: 270px;
+	display: block;
+	float: left;
+	text-align: left;
+	float: left;
+}

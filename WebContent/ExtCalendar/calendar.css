@@ -1,0 +1,471 @@
+/*
+	CSS Calendar  
+	Version 0.0.14 
+	----------------------------------------------------------------
+	Fix some styles and Rules to make work the calendar with doctype and new features inside the calendar  
+	----------------------------------------------------------------
+	----------------------------------------------------------------
+	NOTE: if you want the claendar to suit your custom theme on EXJT then MOD this file  (only Extjs 2.2.1 and below) 	
+	its not working properly for Extjs version 3  so we are developing a new version for 3 		
+*/
+.x-cmscalendar-icon-main{background-image: url(images/cms_calendar.png) !important;} 
+.x-cmscalendar-icon-viewmonth{background-image: url(images/calendar_view_month.png)!important;} 
+.x-cmscalendar-icon-viewweek{background-image: url(images/calendar_view_week.png)!important;} 
+.x-cmscalendar-icon-viewday{background-image: url(images/calendar_view_day.png)!important;} 
+.x-cmscalendar-icon-viewsched{background-image:url(images/calendar_view_schedule.png)!important;} 
+.selector{	background-image: url(images/date.png)!important;	background-repeat: no-repeat;} 
+/* -------------------------------------------------*/
+/* Month view styles */ 
+/* -------------------------------------------------*/
+.x-calendar-month-header {font-family: Tahoma;font-size: 12px;font-weight: bold;color: #FFFFFF;background-color: #003366;	padding: 4px;text-align: center;background-image: url(images/header_background_001.png);background-repeat: repeat-x;}
+.x-calendar-month-header .x-calendar-month-previous {	background-image: url(images/tool-sprites.gif);	background-repeat: no-repeat;	background-position: 0px -105px;	height: 15px;	width: 15px;	float: left; cursor:pointer;}
+.x-calendar-month-header .x-calendar-month-previous-over { background-image: url(images/tool-sprites.gif);	background-repeat: no-repeat;	background-position: -15px -105px;	height: 15px;	width: 15px;	float: left;  cursor:pointer;}
+.x-calendar-month-header .x-calendar-month-next {	background-image: url(images/tool-sprites.gif);	background-repeat: no-repeat;	background-position: 0px -120px;	height: 15px;	width: 15px;	float: right;  cursor:pointer;}
+.x-calendar-month-header .x-calendar-month-next-over {	background-image: url(images/tool-sprites.gif);	background-repeat: no-repeat;	background-position: -15px -120px;	height: 15px;	width: 15px;	float: right;  cursor:pointer;}
+.x-calendar-month-days{	font-family: Verdana, Arial, Helvetica, sans-serif;} 
+.x-calendar-month-days .header-days{ font-family: Verdana, Arial, Helvetica, sans-serif;	font-size: 10px;} 
+.x-calendar-month-days .header-days .dayheader { color: #003366;	background-color: #FFFFFF;	text-align: center;	padding: 2px;	font-weight: bold;	background-image: url(images/top-bottom.png);}
+#skel_hdrdays { font-size:12px; color: #003366;	background-color: #FFFFFF;	text-align: center;	padding: 2px;	font-weight: bold;	background-image: url(images/top-bottom.png);}
+.skel_hdrdays { font-size:12px; color: #003366;	background-color: #FFFFFF;	text-align: center;	padding: 2px;	font-weight: bold;	background-image: url(images/top-bottom.png);}
+
+
+.x-calendar-month-days .header-days .daybody{ 
+	width:14%; border-right: 1px solid #003366;	
+	border-bottom: 1px solid #003366;	cursor: pointer;
+}
+.x-calendar-month-days .header-days .daybody .noday{
+	font-family: Verdana, Arial, Helvetica, sans-serif;	font-size: 10px; color: #990000;
+	width: 100%; background-color: #FFDDDD;	font-weight: bold;	text-align: center;
+	cursor: pointer;	padding-top: 2px;	padding-bottom: 2px;	border-bottom-width: 1px;
+	border-bottom-style: solid;	border-bottom-color: #990000;
+}
+.x-calendar-month-days .header-days .daybody-over .noday{
+	font-family: Verdana, Arial, Helvetica, sans-serif;	font-size: 10px;	color: #CCCCCC;
+	width: 100%;	background-color: #666666;	font-weight: bold;	text-align: center;
+	cursor: pointer;	padding-top: 2px;	padding-bottom: 2px;
+}
+.x-calendar-month-days .header-days .daybody .today{
+	font-family: Verdana, Arial, Helvetica, sans-serif;	font-size: 10px;	font-weight: normal;	color: #003366;
+	text-align: center;	width: 25%;	padding: 2px;	border-right-width: 1px;	border-bottom-width: 1px;	border-right-style: solid;
+	border-bottom-style: solid;	border-right-color: #003366;	border-bottom-color: #003366;	background-color: #D9E6F6;	cursor: pointer;
+}
+.x-calendar-month-days .header-days .daybody-over .today{
+	font-family: Verdana, Arial, Helvetica, sans-serif;	font-size: 10px;	font-weight: bold;	color: #FFFFFF;	text-align: center;
+	width: 25%;	padding: 2px;	border-right-width: 1px;	border-bottom-width: 1px;	border-right-style: solid;	border-bottom-style: solid;
+	border-right-color: #003366;	border-bottom-color: #003366;	background-color: #003366;	cursor: pointer;}
+.x-calendar-month-days .header-days .daybody .monthday{
+	font-family: Verdana, Arial, Helvetica, sans-serif;	font-size: 10px;	font-weight: normal;	color: #003366;
+	text-align: center;	width: 25%;	padding: 2px;	border-right-width: 1px;	border-bottom-width: 1px;	border-right-style: solid;
+	border-bottom-style: solid;	border-right-color: #003366;	border-bottom-color: #003366;	background-color: #FFFFFF;
+	cursor: pointer;
+}
+.x-calendar-month-days .header-days .daybody-over .monthday{
+	font-family: Verdana, 	Arial, Helvetica, sans-serif;		font-size: 10px;		font-weight: bold;		color: #003366;	
+	text-align: center;	width: 25%;	padding: 2px;		border-right-width: 1px;		border-bottom-width: 1px;		border-right-style: solid;	
+	border-bottom-style: solid;	border-right-color: #003366;		border-bottom-color: #003366;		background-color: #D9E6F6;	
+	cursor: pointer;
+}
+
+.x-calendar-month-days .header-days .daybody .tasks{font-family: Arial, Helvetica, sans-serif;	font-size: 11px;	text-align: right;}
+.x-calendar-month-days .header-days .daybody .tasks_list{width:auto;	overflow:auto;	border: 0px solid #663333;	margin: 1px;}
+.x-calendar-month-days .header-days .daybody .tasks_list_item{font-family: Arial, Helvetica, sans-serif; font-size: 9px;	text-align:left;} 
+.x-calendar-month-days .header-days .daybody .task_list_item_over{font-family: Arial, Helvetica, sans-serif;font-size: 9px;text-align:left;color: #FFFFFF;background-image: url(images/header_background_001.png);} 
+/* Menu styles for context menus */
+.x-calendar-month-btnmv_task{	    background-image: url(images/calendar_edit.png);	}
+.x-calendar-month-btnmv_viewmonth{  background-image: url(images/calendar_view_month.png);}
+.x-calendar-month-btnmv_viewweek{	background-image: url(images/calendar_view_week.png);}
+.x-calendar-month-btnmv_viewday{	background-image: url(images/calendar_view_day.png);}
+.x-calendar-month-btnmv_viewsched{	background-image: url(images/calendar_view_schedule.png);} /*0.0.11*/
+/* added on alpha 0.0.4 */
+.x-calendar-month-btnmv_nextmth{	background-image: url(images/date_next.png);	}
+.x-calendar-month-btnmv_prevmth{	background-image: url(images/date_previous.png);	}
+.x-calendar-week-btnmv_nextweek{	background-image: url(images/date_next.png);	}
+.x-calendar-week-btnmv_prevweek{	background-image: url(images/date_previous.png);	}
+/* added on alpha 0.0.4 */
+.x-calendar-day-btnmv_add	 {	background-image: url(images/calendar_add.png);	}
+.x-calendar-day-btnmv_delete {	background-image: url(images/calendar_delete.png);	}
+.x-calendar-day-btnmv_task	 {	background-image: url(images/calendar_edit.png);	}
+.x-calendar-day-btnmv_nextday{	background-image: url(images/date_next.png);	}
+.x-calendar-day-btnmv_prevday{	background-image: url(images/date_previous.png);	}
+/* -------------------------------------------------*/
+/* Month view styles */ 
+/* -------------------------------------------------*/
+
+/* -------------------------------------------------*/
+/* Day view styles */ 
+/* -------------------------------------------------*/
+.x-calendar-dayv-header {
+	font-family: Tahoma;	font-size: 12px;	font-weight: bold;	color: #FFFFFF;	background-color: #003366;	padding: 4px;
+	text-align: center;	background-image: url(images/header_background_001.png);	background-repeat: repeat-x;
+}
+.x-calendar-dayv-header .x-calendar-day-previous {
+	background-image: url(images/tool-sprites.gif);	background-repeat: no-repeat;	background-position: 0px -105px;
+	height: 15px;	width: 15px;	float: left; cursor:pointer;
+}
+.x-calendar-dayv-header .x-calendar-day-previous-over {
+	background-image: url(images/tool-sprites.gif);	background-repeat: no-repeat;	background-position: -15px -105px;
+	height: 15px;	width: 15px;	float: left; cursor:pointer;
+}
+.x-calendar-dayv-header .x-calendar-day-next {
+	background-image: url(images/tool-sprites.gif);	background-repeat: no-repeat;	background-position: 0px -120px;
+	height: 15px;	width: 15px;	float: right; cursor:pointer;
+}
+.x-calendar-dayv-header .x-calendar-day-next-over {
+	background-image: url(images/tool-sprites.gif);	background-repeat: no-repeat;	background-position: -15px -120px;
+	height: 15px;	width: 15px;	float: right; cursor:pointer;
+}
+.x-calendar-dayv-body{	width:auto;	font-family: Tahoma;	border: thin solid #003366;}
+.x-calendar-dayv-body .hour-marker{
+	font-family: Geneva, Arial, Helvetica, sans-serif; font-size: 10px; /*color: #003366;*/
+	color: #4B7196; background-color: #D9ECFF;	height: 60px;	text-align: center;	font-weight: bold;	border-bottom-width: 1px;	border-bottom-style: solid;
+	border-bottom-color: #003366;	border-right-width: 1px;	border-right-style: solid;	border-right-color: #003366;	cursor:pointer; 
+}
+.x-calendar-dayv-body .hour-marker_ie{
+	font-family: Geneva, Arial, Helvetica, sans-serif; font-size: 10px; /*color: #003366;*/
+	color: #4B7196; background-color: #D9ECFF;	height: 60px;	text-align: center;	
+	font-weight: bold;	border-bottom-width: 1px;	border-bottom-style: solid;
+	border-bottom-color: #003366;	border-right-width: 1px;	border-right-style: solid;	
+	border-right-color: #003366;	cursor:pointer; 
+}
+.x-calendar-dayv-body .hour-marker .minute{
+	font-family: Geneva, Arial, Helvetica, sans-serif;	font-size: 9px;	/*color: #003366;*/
+	color: #4B7196;	background-color: #D9ECFF;	height: 60px;	
+	text-align: center;	font-weight: normal;	vertical-align: top;
+}
+.x-calendar-dayv-body .hour-marker .minute_ie{
+	font-family: Geneva, Arial, Helvetica, sans-serif;	
+	font-size: 9px;	/*color: #003366;*/
+	color: #4B7196;	
+	background-color: #D9ECFF;	
+	height: 60px;	
+	text-align: center;	
+	font-weight: normal;	
+	vertical-align: top;
+}
+.x-calendar-dayv-body .hour-marker_ie .minute{
+	font-family: Geneva, Arial, Helvetica, sans-serif;	
+	font-size: 9px;	/*color: #003366;*/
+	color: #4B7196;	
+	background-color: #D9ECFF;	
+	height: 60px;	
+	text-align: center;	
+	font-weight: normal;	
+	vertical-align:top;
+}
+.x-calendar-dayv-body .hour-marker_ie .minute_ie{
+	font-family: Geneva, Arial, Helvetica, sans-serif;	
+	font-size: 9px;	/*color: #003366;*/
+	color: #4B7196;	
+	background-color: #D9ECFF;	
+	height: 60px;	
+	text-align: center;	
+	font-weight: normal;	
+	vertical-align: top;
+}
+.x-calendar-dayv-body .hour-marker_ie .minute_iex{
+	font-family: Geneva, Arial, Helvetica, sans-serif;	
+	font-size: 9px;	/*color: #003366;*/
+	color: #4B7196;	
+	background-color: #D9ECFF;	
+}
+
+
+.x-calendar-dayv-body .basegridday {
+	background-image: url(images/dview_15_alt.png); 	
+	width: 100%;		
+	font-family: Verdana, Arial, Helvetica, sans-serif;	
+	font-size: 10px;		
+	color: #003366;
+}
+.x-calendar-dayv-body .basegridday_ie6 {
+	background-image: url(images/dview_15_alt.png);
+	width: 100%;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #003366;
+	background-repeat: repeat;
+	background-position: 0px 0px;
+}
+
+
+/* -------------------------------------------------*/
+/* Day view styles */ 
+/* -------------------------------------------------*/
+/* Task styles */
+.task_fit{font-family: Tahoma;	font-size: 10px; color: #003366;
+background-color: #0099CC; cursor: pointer; overflow:hidden; 
+}
+.task{ font-family: Tahoma;	font-size: 10px; color: #003366;
+background-color: #0099CC; cursor: pointer; overflow:hidden; 
+float:left;
+}
+.task-drag{	font-family: Tahoma; font-size: 10px; color: #003366;	background-color: #99CCFF;} 
+/* -------------------------------------------------*/
+/* Week view styles */ 
+/* -------------------------------------------------*/
+/* headers  */ 
+.x-calendar-weekv-header {
+	font-family: Tahoma;font-size: 12px;font-weight: bold;color: #FFFFFF;background-color: #003366;padding: 4px;
+	text-align: center;background-image: url(images/header_background_001.png);background-repeat: repeat-x;
+}
+.x-calendar-weekv-header-small {font-family: Tahoma;font-size: 9px;font-weight: bold;padding: 4px;text-align: center;color: #FFFFFF;}
+.x-calendar-weekv-header-days {	font-family: Tahoma;font-size:10px;font-weight: bold;color: #FFFFFF;background-color: #003366;	padding: 2px;	text-align: center;cursor:pointer;}
+.x-calendar-weekv-header-days .overwday{font-family: Tahoma; font-size:10px; font-weight: bold;	color: #003366;	background-color: #D9ECFF;	padding: 2px;	text-align: center;cursor:pointer;}
+.overwday{font-family: Tahoma;	font-size:10px;	font-weight: bold;	color: #003366;	background-color: #D9ECFF;	padding: 2px;	text-align: center;cursor:pointer;}
+.x-calendar-weekv-header-alldaylist{ font-family: Tahoma;	font-size:10px;	font-weight: bold;	color: #FFFFFF;	background-color: #004E9B;	padding: 2px;	text-align: center; cursor:pointer;} 
+.alldaylistover{font-family: Tahoma;	font-size:10px;	color: #FFCC00;	background-color: #004E9B;	padding: 2px;	text-align: center;	cursor:pointer;} 
+/*buttons on header*/
+.x-calendar-weekv-header  .x-calendar-week-previous {	background-image: url(images/tool-sprites.gif);	background-repeat: no-repeat;	background-position: 0px -105px;	height: 15px;	width: 15px;	float: left;cursor:pointer;}
+.x-calendar-weekv-header  .x-calendar-week-previous-over {	background-image: url(images/tool-sprites.gif);	background-repeat: no-repeat;	background-position: -15px -105px;	height: 15px;	width: 15px;	float: left;cursor:pointer;}
+.x-calendar-weekv-header  .x-calendar-week-next {	background-image: url(images/tool-sprites.gif);	background-repeat: no-repeat;	background-position: 0px -120px;	height: 15px;	width: 15px;	float: right;cursor:pointer;}
+.x-calendar-weekv-header  .x-calendar-week-next-over {	background-image: url(images/tool-sprites.gif);	background-repeat: no-repeat;	background-position: -15px -120px;	height: 15px;	width: 15px;	float: right;cursor:pointer;}
+/*week body*/ 
+.x-calendar-weekv-body{	font-family: Tahoma; background-color:#99CCFF; }
+.x-calendar-weekv-body .allday-container{ background-color: #006666;	opacity:.6;	-moz-opacity:.6;	filter:alpha(opacity=60);	position: absolute;}
+.x-calendar-weekv-body .allday_w_task{	background-color: #004E9B;	padding-top: 4px;	padding-bottom: 4px;}
+.x-calendar-weekv-body .alldaygridbody{	background-color: #FFFFFF;	font-family: Tahoma;	font-size: 10px;}
+.x-calendar-weekv-body .allday-marker{	font-family: Geneva, Arial, Helvetica, sans-serif; font-size: 10px; color: #003366;	background-color: #004E9B;}
+.x-calendar-weekv-body .taskallday-layoutbase{ height: 15px; }
+
+.x-calendar-weekv-body .hour-marker{font-family: Geneva, Arial, Helvetica, sans-serif; font-size: 9px;	color: #4B7196;	
+background-color: #D9ECFF;	height: 60px;	text-align: center;	font-weight: bold;	
+border-bottom-width: 1px;	border-bottom-style: solid;	border-bottom-color: #003366;	
+border-right-width: 1px;	border-right-style: solid;	border-right-color: #003366;	
+cursor:pointer;}
+.x-calendar-weekv-body .hour-marker_ie{
+font-family: Geneva, Arial, Helvetica, sans-serif; font-size: 9px; color: #4B7196;
+background-color: #D9ECFF;	height: 60px;	text-align: center;	font-weight: bold;	
+border-bottom-width: 1px;	border-bottom-style: solid;	border-bottom-color: #003366;	
+border-right-width: 1px;	border-right-style: solid;	border-right-color: #003366;	
+cursor:pointer; 
+}
+.x-calendar-weekv-body .hour-marker .minute{	font-family: Geneva, Arial, Helvetica, sans-serif;	font-size: 9px;	color: #4B7196;	
+background-color: #D9ECFF;	height: 60px;	text-align: center;	font-weight: normal;	vertical-align: top;}
+
+
+.x-calendar-weekv-body .hour-marker .minute_ie{
+	font-family: Geneva, Arial, Helvetica, sans-serif;	font-size: 9px;
+	color: #4B7196;	background-color: #D9ECFF;	height: 60px;	text-align: center;	font-weight: normal;	vertical-align: top;
+}
+.x-calendar-weekv-body .hour-marker_ie .minute{
+	font-family: Geneva, Arial, Helvetica, sans-serif;	font-size: 9px;	/*color: #003366;*/
+	color: #4B7196;	background-color: #D9ECFF;	height: 60px;	text-align: center;	font-weight: normal;	vertical-align: top;
+}
+.x-calendar-weekv-body .hour-marker_ie .minute_ie{
+	font-family: Geneva, Arial, Helvetica, sans-serif;	font-size: 9px;	/*color: #003366;*/
+	color: #4B7196;	background-color: #D9ECFF;	height: 60px;	text-align: center;	font-weight: normal;	vertical-align: top;
+}
+.x-calendar-weekv-body .basegridweek{ background-image: url(images/dview_15_alt.png);	width:100%;	font-family: Verdana, Arial, Helvetica, sans-serif;		font-size: 10px; 	overflow:hidden;}
+.x-calendar-weekv-body .currentday{ background-image: url(images/dview_15.png);	width:100%;	font-family: Verdana, Arial, Helvetica, sans-serif;		font-size: 10px;	overflow:hidden;}
+.x-calendar-weekv-body .weekbodydisplay{height: 300px;	border: 1px solid #003366;overflow:hidden;}
+.x-calendar-weekv-body .weekstartday{border-right-width: 1px;	border-right-style: solid;	border-right-color: #003366;overflow:hidden;}
+.x-calendar-weekv-body .weekmidday{	border-right-width: 1px;	border-right-style: solid;	border-right-color: #003366;border-left-width: 1px;		border-left-style: solid;	border-left-color: #003366; overflow:hidden;}
+.x-calendar-weekv-body .weekendday{	border-left-width: 1px;	border-left-style: solid;	border-left-color: #003366; overflow:hidden;}
+/* more tasks window */
+.x-calendar-more-tasks-win{	background-image: url(images/cms_calendar.png)!important;}
+/*task especificposition:relative; */
+.x-calendar-weekv-body .taskallday-taskbase{
+ height: 15px; font-family: Tahoma; font-size: 10px; background-color: #CCCCFF; 
+ text-indent: 4px; cursor:pointer; ; overflow:hidden;}
+.containeronday{ width:100%; overflow:hidden;}
+/* tasks in each day*/
+#eventowner{top:0;left:0; float:left;}
+#eventownerday{top:0;left:0;}
+/*width:100%;height:100%;position:absolute;*/
+.taskonday{	font-family: Tahoma; font-size: 10px; 
+color: #003366; background-color: #99CCFF; 
+cursor:pointer; overflow:hidden;
+}
+.taskondayopera{ font-family: Tahoma; font-size: 10px; 
+color: #003366; background-color: #99CCFF; cursor:pointer; 
+overflow:hidden; float:left; }
+/* -------------------------------------------------*/
+/* Week view styles */ 
+/* -------------------------------------------------*/
+
+/* -------------------------------------------------*/
+/* Scheduler view styles */ 
+/* -------------------------------------------------*/
+
+.x-calendar-sched-header {
+	font-family: Tahoma;font-size: 12px;font-weight: bold;color: #FFFFFF;background-color: #003366;
+	padding: 4px;text-align: left; text-indent:8px;background-image: url(images/header_background_001.png);background-repeat: repeat-x;
+}
+.x-calendar-sched-header .x-calendar-sched-previous {
+	background-image: url(images/tool-sprites.gif);
+	background-repeat: no-repeat;	background-position: 0px -105px;	height: 15px;	width: 15px;
+	float: right;
+}
+.x-calendar-sched-header .x-calendar-sched-previous-over {
+	background-image: url(images/tool-sprites.gif);
+	background-repeat: no-repeat;	background-position: -15px -105px;	height: 15px;	width: 15px;	
+	float: right;
+}
+.x-calendar-sched-header .x-calendar-sched-next {
+	background-image: url(images/tool-sprites.gif);
+	background-repeat: no-repeat;	background-position: 0px -120px;	height: 15px;	width: 15px;	
+	float: right;
+}
+.x-calendar-sched-header .x-calendar-sched-next-over {
+	background-image: url(images/tool-sprites.gif);
+	background-repeat: no-repeat;	background-position: -15px -120px;	height: 15px;	width: 15px;
+	float: right;
+}
+.x-calendar-sched-body-header{}
+/* FireFOx Styles */ 
+.scheduler_header_eventslist{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	background-color:#003366;
+	color: #FFFFFF;
+	text-align: center;
+	height: 20px;
+	font-size: 10px;
+	/*background-image: url(images/header_background_001.png);*/
+	padding-top:3px;
+}
+.scheduler_header_eventslist_IE{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	background-color:#003366;
+	color: #FFFFFF;
+	text-align: center;
+	height: 20px;
+	font-size: 10px;
+	/*background-image: url(images/header_background_001.png);*/
+	/*padding-top:3px;*/ /* Remove padding on IE cause its making some strange things*/
+}
+.sched_tab2{
+	background-image: url(images/__header_background_001.png);
+	background-repeat: no-repeat;
+	background-position: -70px top;
+	height: 20px;
+}
+.sched_tab2_IE{
+	background-image: url(images/__header_background_001.png);
+	background-repeat: no-repeat;
+	background-position: top;
+	height: 20px;
+}
+.sched_tab1{
+	background-image: url(images/sched_tab_like_001.png);
+	background-repeat: no-repeat;
+	background-position: right top;
+	height: 17px;
+	padding-top:3px;
+}
+.sched_tab1_IE{
+	background-image: url(images/sched_tab_like_001.png);
+	background-repeat: no-repeat;
+	background-position: right top;
+	height: 17px;
+	padding-top:3px;
+}
+
+/*safari styles */ 
+.safari_scheduler_header_eventslist{
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	background-color:#003366;
+	color: #FFFFFF;
+	text-align: center;
+	height: 20px;
+	font-size: 10px;
+	/*background-image: url(images/header_background_001.png);*/
+	padding-top:3px;
+}
+.sched_dayheader_base{
+	background-color:#003366;	color: #FFFFFF;	text-align: center;	font-size: 10px;	font-weight: bold;	height: 17px;
+	padding-top: 3px;	font-family: Verdana, Arial, Helvetica, sans-serif;	border-right-width: 1px;	border-right-style: solid;
+	border-right-color: #003366;
+} 
+.tdshx{
+	border-right-width: 0px;
+	border-bottom-width: 1px;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-right-color: #003366;
+	border-bottom-color: #003366;
+}
+.tdshx_grid{
+	border-right-width: 0px;
+	border-bottom-width: 1px;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-right-color: #003366;
+	border-bottom-color: #003366;
+}
+.sched_hdrbody_vals{ 	height:18px; 	padding-top:4px;	cursor:pointer; 	}
+.sched_hdrbody_valsover  {
+	background-color:#006699;
+	height:18px;
+	padding-top:4px;
+	cursor:pointer;
+	background-image: url(images/header_background_001.png);
+	background-repeat: repeat-x;
+}
+.sched_hdrbody_vals_IE{ height:22px; 	padding-top:5px;	cursor:pointer; 	}
+.sched_hdrbody_valsover_IE {
+	background-color:#006699;
+	height:22px;
+	padding-top:5px;
+	cursor:pointer;
+	background-image: url(images/header_background_001.png);
+	background-repeat: repeat-x;
+}
+.sched_container_body    {overflow:auto; overflow-y:auto; overflow-x:auto;} /*tmpboysched height:150px; width: 780px; this ones are calculated*/
+.sched_container_insider {overflow:hidden;} /*  height:192px;   is calculated */
+/* .tmpboysched_insider  {overflow:hidden; width:100%; height:192px;}  */
+
+.sched_listItem{ 
+font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; padding-top:0px;
+border-bottom:solid 1px #003366; 
+cursor:pointer;
+/* 	NOte if you want to change the color of the grid in scheduler view then replace the color of the line 
+	also you need to change on :
+	.sched_taskdd_base
+	and image line color on Custom styles 
+	(fireworks suits fine as i already make them with fireworks CS3) 
+*/
+}
+.sched_lisItem_div{height:20px; overflow:hidden; cursor:pointer;}
+/*.scheduler_list{	font-family: Verdana, Arial, Helvetica, sans-serif;	font-size: 10px;	padding-top: 2px;	width: 246px;}*/
+.sched_parentItem{	background-color: #D9ECFF; height:20px; overflow:hidden;}
+.sched_childItem{	background-color: #DDFFD9; height:20px; overflow:hidden;}
+.sched_listItem_mouseOver{ background-image:url(images/header_background_002.png); background-repeat:repeat-x;
+ background-color:#666666; color:#FFFFFF; }
+.sched_taskdd_base{ 
+ 	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 9px;
+	color: #003366;
+	clear: both;
+	height:20px;
+	border-bottom:solid 1px #003366;
+	border-left:solid 1px #003366;		
+	border-right:solid 1px #003366;
+	/*NOte if remove border-left and or  border-right then change line in scheduler.js
+		mynewElement.setStyle('width',(pos[1] -[wwww]) + 'px');  //cause of the border-left on the style 
+		WHERE www = -1 per css property 
+	*/
+	cursor:pointer;  
+	/*background-color: #FF6699;	width: 150px;	left: 50px;  automatic calc inside the code */
+	/*position: relative;*/ 
+	overflow:hidden;
+}
+/*Icons for menus */
+.x-calendar-sched-btnmv_add	 	  {	background-image: url(images/calendar_add.png);	}
+.x-calendar-sched-btnmv_delete    {	background-image: url(images/calendar_delete.png);	}
+.x-calendar-sched-btnmv_edit	  {	background-image: url(images/calendar_edit.png);	}
+.x-calendar-sched-btnmv_nextperiod{	background-image: url(images/date_next.png);	}
+.x-calendar-sched-btnmv_prevperiod{	background-image: url(images/date_previous.png);	}
+.x-calendar-sched-btnmv_viewmonth{  background-image: url(images/calendar_view_month.png);}
+.x-calendar-sched-btnmv_viewweek{	background-image: url(images/calendar_view_week.png);}
+.x-calendar-sched-btnmv_viewday{	background-image: url(images/calendar_view_day.png);}
+/*
+	Custom styles according to the widths you are gonna handle on the Shceduler view 	
+	I didnt test other options for align image so my apologies :( 
+*/
+.sched_linetask25{background-image:url(images/sched_bg_25w.png);}
+.sched_linetask35{background-image:url(images/sched_bg_35w.png);}
+.sched_linetask50{background-image:url(images/sched_bg_50w.png);}
+.sched_linetask70{background-image:url(images/sched_bg_70w.png);}
